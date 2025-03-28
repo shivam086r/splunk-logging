@@ -7,10 +7,10 @@
         </Console>
         <SplunkHttp
                 name="splunkhttp"
-                url="http://localhost:8088"
-                token="7f99549c-adfb-482b-af62-c3b3dc103edd"
-                host="localhost"
-                index="order_api_dev"
+                url="https://input-prd-p-8uyra.cloud.splunk.com:8088"
+                token="10dbdb3b-ce02-46c3-a37b-c3651ce5799e"
+                host="ip-172-31-88-16.ec2.internal"
+                index="main"
                 type="raw"
                 source="http-event-logs"
                 sourcetype="log4j"
