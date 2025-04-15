@@ -21,3 +21,24 @@ sudo /opt/splunkforwarder/bin/splunk install app /opt/splunkclouduf.spl -auth <u
 sudo /opt/splunkforwarder/bin/splunk restart
 
 sudo /opt/splunkforwarder/bin/splunk add monitor -auth <username:password> /var/log/springboot
+
+
+####################### Splunk Removal from Server  ##############################
+
+sudo /opt/splunkforwarder/bin/splunk stop
+
+sudo /opt/splunkforwarder/bin/splunk disable boot-start
+
+sudo rpm -e splunkforwarder
+
+sudo rm -rf /opt/splunkforwarder
+sudo rm -f /opt/splunkclouduf.spl
+
+id splunk && sudo userdel -r splunk
+
+sudo rm -f /etc/init.d/splunk
+sudo rm -f /etc/systemd/system/SplunkForwarder.service
+
+ps aux | grep splunk
+
+rpm -qa | grep splunk
