@@ -25,20 +25,20 @@ sudo /opt/splunkforwarder/bin/splunk add monitor -auth <username:password> /var/
 
 ####################### Splunk Removal from Server  ##############################
 
-sudo /opt/splunkforwarder/bin/splunk stop
+ps aux | grep splunk
 
-sudo /opt/splunkforwarder/bin/splunk disable boot-start
-
-sudo rpm -e splunkforwarder
+sudo pkill -f splunk
 
 sudo rm -rf /opt/splunkforwarder
+
 sudo rm -f /opt/splunkclouduf.spl
-
-id splunk && sudo userdel -r splunk
-
 sudo rm -f /etc/init.d/splunk
 sudo rm -f /etc/systemd/system/SplunkForwarder.service
+
+id splunk && sudo userdel -r splunk
 
 ps aux | grep splunk
 
 rpm -qa | grep splunk
+
+rm splunkforwarder-9.4.1-e3bdab203ac8.x86_64.rpm
